@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Northloop — log in</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="login">
+    <div class="wrap">
+      <header class="site-header">
+        <a class="wordmark" href="index.html">Northloop</a>
+        <p class="desk">Residential desk</p>
+        <nav>
+          <a href="index.html">Listings</a>
+          <a href="saved.html" data-testid="saved-link" hidden>My saved</a>
+          <a href="login.html" data-testid="login-link">Log in</a>
+          <span class="session" data-testid="current-user" hidden></span>
+        </nav>
+      </header>
+      <main>
+        <h1>Log in</h1>
+        <p class="lede">The demo user is a fixture seam, loaded from <code>data/user.json</code>. It is not an auth design.</p>
+        <form id="login-form" class="login">
+          <label>
+            Email
+            <input id="email" name="email" type="email" autocomplete="username" />
+          </label>
+          <label>
+            Password
+            <input id="password" name="password" type="password" autocomplete="current-password" />
+          </label>
+          <button type="submit">Log in</button>
+        </form>
+        <p class="error" data-testid="login-error" hidden>Invalid email or password.</p>
+        <p class="hint">Use demo@example.com / demo123.</p>
+      </main>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

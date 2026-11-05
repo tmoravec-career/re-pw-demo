@@ -1,0 +1,20 @@
+{
+  "name": "re-pw-demo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Playwright and TypeScript demo against a local listings site.",
+  "scripts": {
+    "site": "serve mock-site -l 4174",
+    "test": "playwright test --project=chromium",
+    "test:smoke": "playwright test --project=chromium --grep @smoke",
+    "test:known-bugs": "playwright test --project=known-bugs",
+    "report": "playwright show-report",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.19.0",
+    "serve": "^14.2.5",
+    "typescript": "^5.9.3"
+  }
+}

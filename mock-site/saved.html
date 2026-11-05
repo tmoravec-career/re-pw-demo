@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Northloop — saved</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script>
+      if (!localStorage.getItem("re-pw-demo-user")) {
+        location.replace("login.html");
+      }
+    </script>
+  </head>
+  <body data-page="saved">
+    <div class="wrap">
+      <header class="site-header">
+        <a class="wordmark" href="index.html">Northloop</a>
+        <p class="desk">Residential desk</p>
+        <nav>
+          <a href="index.html">Listings</a>
+          <a href="saved.html" data-testid="saved-link" hidden>My saved</a>
+          <a href="login.html" data-testid="login-link">Log in</a>
+          <span class="session" data-testid="current-user" hidden></span>
+        </nav>
+      </header>
+      <main>
+        <h1>My saved</h1>
+        <p class="lede">Houses you marked on this browser. Pending and sold listings are not supposed to be saveable.</p>
+        <p class="summary" data-testid="saved-empty" hidden>No saved listings</p>
+        <p class="summary error" data-testid="load-error" hidden>Listings could not be loaded.</p>
+        <div class="board">
+          <div id="listings" class="listings"></div>
+          <aside class="board-map">
+            <p class="map-title">On the map</p>
+            <div id="map" data-testid="listing-map"></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

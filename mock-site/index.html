@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Northloop — listings</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body data-page="listings">
+    <div class="wrap">
+      <header class="site-header">
+        <a class="wordmark" href="index.html">Northloop</a>
+        <p class="desk">Residential desk</p>
+        <nav>
+          <a href="index.html">Listings</a>
+          <a href="saved.html" data-testid="saved-link" hidden>My saved</a>
+          <a href="login.html" data-testid="login-link">Log in</a>
+          <span class="session" data-testid="current-user" hidden></span>
+        </nav>
+      </header>
+      <main>
+        <h1>Houses on the desk</h1>
+        <p class="lede">Houses currently on the desk. Filter the list or the map, open one, and save the ones still for sale.</p>
+        <form id="filters" class="filters" role="search">
+          <label>
+            City or address
+            <input id="city" name="city" type="search" data-testid="search-city" />
+          </label>
+          <label>
+            Min price
+            <input id="min-price" name="minPrice" type="number" min="0" step="1000" data-testid="filter-min-price" />
+          </label>
+          <label>
+            Max price
+            <input id="max-price" name="maxPrice" type="number" min="0" step="1000" data-testid="filter-max-price" />
+          </label>
+          <label>
+            Minimum bedrooms
+            <select id="min-beds" name="minBeds" data-testid="filter-min-beds">
+              <option value="">Any</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </label>
+          <label>
+            Minimum bathrooms
+            <select id="min-baths" name="minBaths" data-testid="filter-min-baths">
+              <option value="">Any</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </label>
+          <label>
+            Status
+            <select id="status" name="status" data-testid="filter-status">
+              <option value="">Any</option>
+              <option value="active">For sale</option>
+              <option value="pending">Pending</option>
+              <option value="sold">Sold</option>
+            </select>
+          </label>
+          <fieldset class="home-types">
+            <legend>Home type</legend>
+            <label><input type="checkbox" name="home-type" value="house" /> House</label>
+            <label><input type="checkbox" name="home-type" value="condo" /> Condo</label>
+            <label><input type="checkbox" name="home-type" value="townhouse" /> Townhouse</label>
+          </fieldset>
+          <label>
+            Sort
+            <select id="sort" name="sort" data-testid="sort">
+              <option value="desk">Desk order</option>
+              <option value="price-asc">Price (low to high)</option>
+              <option value="price-desc">Price (high to low)</option>
+              <option value="beds-desc">Most bedrooms</option>
+            </select>
+          </label>
+        </form>
+        <p class="summary" data-testid="loading" role="status">Loading listings…</p>
+        <p class="summary" data-testid="result-count" data-count="" hidden></p>
+        <p class="summary" data-testid="empty-state" hidden>No listings match</p>
+        <p class="summary error" data-testid="load-error" hidden>Listings could not be loaded.</p>
+        <div class="board">
+          <div id="listings" class="listings"></div>
+          <aside class="board-map">
+            <p class="map-title">On the map</p>
+            <div id="map" data-testid="listing-map"></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
