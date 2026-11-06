@@ -72,7 +72,12 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: playwright-report
+          # Artifacts from earlier attempts stay attached to the run, so a re-run
+          # would leave deploy-pages with two "github-pages" artifacts to pick from.
+          name: github-pages-${{ github.run_attempt }}
 
       - name: Publish to Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_attempt }}
